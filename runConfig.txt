@@ -1,0 +1,95 @@
+key,value,type
+
+###################
+# Watchdog settings
+watchdogEmail,exampleuser@gmail.com,string
+watchdogEmailPassword,secret123!,string
+server,smtp.gmail.com:587,string
+recipientEmail,['email1',email2],list
+urlsDirectory,,string
+
+##############
+# Sample sizes
+surblSampleSize,1000,integer
+phishTankSampleSize,1000,integer
+topTypoSampleSize,2000,integer
+midTypoSampleSize,2000,integer
+tailTypoSampleSize,2000,integer
+# This is for the typos targeting alexa top 500
+typoSampleSize,2000,integer
+maliciousPerNsSampleSize,50,integer
+alexaSampleSize,2000,integer
+pharmaSampleSize,500,integer
+
+########################
+# Google Search settings
+searchEngine,rndId,string
+googleApiKey,['key1','key2'],list
+searchKeywordFolder,./search_keywords/,string
+searchKeywordFiles,"{'pharma':'pharma.csv','copyright':'copyright.csv'}",json
+
+########################
+# Typosquatting settings
+dnsIntensity,1000,integer
+typoFolder,../data/typosquatting/,string
+maliciousNsFile,fileOfNssWithHigMalRate,string
+
+##############################
+# Target source lists settings
+urlShortenerFile,../data/sources/stonybrook/ad-based_shortening.csv,string
+phishTankUrl,http://data.phishtank.com/data/online-valid.csv,string
+phishTankLocation,..data/sources/phishTank/,string
+surblUrl,blacksync.prolocation.net::surbl-csv/surbl-raw.csv.gz,string
+surblLocation,../data/sources/surbl/,string
+testListFile,../testCopyrightList.csv,string
+
+##############################
+# Crawler and general settings
+experimentName,phoneTestStonybrookOne,string
+dbname,tds,string
+dbhost,,string
+dbport,,string
+dbuser,,string
+dbpwd,,string
+day,%Y%m%d,date
+repeatDay,,string
+repeatExperimentName,,string
+followLinks,True,boolean
+createTargets,"['typosquatting','pharmaTypos','tailTypos','pharma','copyright','phishTank','stonyUrlShorteners','alexa','surbl']",list
+numThreads,2,integer
+batchSize,2000,integer
+numCrawlAttempts,2,integer
+numScrapeRetriesCrawler,2,integer
+waitScrapeIntervals,1,integer
+proxyPortBase,8200,integer
+# 2 requestPerDriver means with 5 scrapeTypes that we actually do 2*5=10 requests per driver
+requestPerDriver,2,integer
+# If driverPerRequest is True then there will be a new driver and proxy for each request.
+# In this case requestPerDriver doesn't matter
+driverPerRequest,False,boolean
+webProxyFile,"webProxiesReferrer.txt",string
+
+##################
+# Scraper settings
+scrapeTypes,"{'name':'referrernoproxy','ua':'uaNormal','ref':True,'browser':'chrome','mobile':False}",json
+scrapeTypes,"{'name':'referrer','ua':'uaNormal','ref':True,'browser':'chrome','mobile':False}",json
+scrapeTypes,"{'name':'vanilla','ua':'uaNormal','ref':False,'browser':'chrome','mobile':False}",json
+scrapeTypes,"{'name':'googlebot','ua':'uaGooglebot','ref':False,'browser':'chrome','mobile':False}",json
+scrapeTypes,"{'name':'android','ua':'uaMobile','ref':True,'browser':'chrome','mobile':True,'width':360,'height':740,'pixelRatio':4.0}",json
+referer,https://www.google.com,string
+uaNormal,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36",string
+uaGooglebot,"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",string
+uaMobile,"Mozilla/5.0 (Linux; Android 9; SM-G960F Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Mobile Safari/537.36",string
+uaIphone,"Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/70.0.3538.75 Mobile/15E148 Safari/605.1",string
+headless,True,boolean
+timeout,120,integer
+fileWaitTimeout,4,integer
+browserStartRetry,4,integer
+numScrapeRetriesLinkFollower,1,integer
+saveToDisk,False,boolean
+extensionsFolder,extensions/,string
+downloadFolder,downloads/,string
+maxAlerts,10,integer
+waitBetweenAlerts,1,integer
+
+
