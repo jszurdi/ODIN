@@ -1,7 +1,7 @@
 Installation requirements:
 
 1. Make sure to download and use the correct Chrome Driver: https://sites.google.com/a/chromium.org/chromedriver/downloads
- - 0. Install Chromium browser: apt-get install chromium-browser
+ - Install Chromium browser: apt-get install chromium-browser
  - location for driver: prereqs
  
 2. Install Postgres and create DB defined in database.sql
@@ -12,11 +12,7 @@ Installation requirements:
 3. Other installations:
  - apt-get install xvfb xserver-xephyr vnc4server
 
-4. Set up and activate virtual environment
-Virtual environment for python 3:
-python3 /home/jszurdi/.local/lib/python3.6/site-packages/virtualenv.py --system-site-packages -p /usr/bin/python3 tds3
-python3 /home/jszurdi/.local/lib/python3.6/site-packages/virtualenv.py -p /usr/bin/python3 tds3
- source tds3/bin/activate
+4. Python libraries
  pip3 install selenium
  pip3 install pyvirtualdisplay
  pip3 install psycopg2
@@ -33,7 +29,6 @@ python3 /home/jszurdi/.local/lib/python3.6/site-packages/virtualenv.py -p /usr/b
  pip3 install dnspython
  pip3 install seaborn
  pip3 install networkx
- deactivate
 
 5. Set up runConfig.txt to your liking
 
